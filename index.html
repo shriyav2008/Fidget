@@ -31,6 +31,69 @@
           box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
           width: 100%;
           max-width: 1400px;
+          position: relative;
+          overflow: hidden;
+        }
+
+        /* Floating bubbles background */
+        .floating-bubble {
+          position: absolute;
+          background-image: url("miffyclicker.jpg");
+          background-size: cover;
+          background-position: center;
+          border-radius: 50%;
+          opacity: 0.1;
+          pointer-events: none;
+          animation: float-bubble 6s ease-in-out infinite;
+        }
+
+        .bubble1 {
+          width: 80px;
+          height: 80px;
+          top: 10%;
+          left: 5%;
+          animation-delay: 0s;
+        }
+
+        .bubble2 {
+          width: 60px;
+          height: 60px;
+          top: 20%;
+          right: 8%;
+          animation-delay: 2s;
+        }
+
+        .bubble3 {
+          width: 100px;
+          height: 100px;
+          top: 50%;
+          left: 2%;
+          animation-delay: 1s;
+        }
+
+        .bubble4 {
+          width: 70px;
+          height: 70px;
+          bottom: 15%;
+          right: 10%;
+          animation-delay: 3s;
+        }
+
+        .bubble5 {
+          width: 90px;
+          height: 90px;
+          bottom: 10%;
+          left: 15%;
+          animation-delay: 1.5s;
+        }
+
+        @keyframes float-bubble {
+          0%, 100% {
+            transform: translateY(0px) translateX(0px);
+          }
+          50% {
+            transform: translateY(-30px) translateX(15px);
+          }
         }
 
         h1 {
@@ -38,6 +101,8 @@
           margin-bottom: 40px;
           color: #333;
           width: 100%;
+          position: relative;
+          z-index: 10;
         }
 
         .toys-grid {
@@ -45,6 +110,8 @@
           grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
           gap: 30px;
           width: 100%;
+          position: relative;
+          z-index: 20;
         }
 
         .fidget-item {
@@ -53,9 +120,6 @@
           background: #f9f9f9;
           border-radius: 15px;
           box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-          display: flex;
-          flex-direction: column;
-          align-items: center;
         }
 
         .fidget-item h2 {
@@ -224,6 +288,7 @@
         .clicker {
           width: 120px;
           height: 120px;
+          margin: 0 auto 20px;
           background-image: url("miffyclicker.jpg");
           background-size: cover;
           background-position: center;
@@ -234,7 +299,6 @@
           align-items: center;
           transition: all 0.1s;
           box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-          margin: 0 auto 20px;
         }
 
         .clicker:hover {
@@ -248,12 +312,18 @@
         p {
           font-size: 18px;
           color: #555;
-          margin: 0;
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <!-- Floating bubbles background -->
+        <div class="floating-bubble bubble1"></div>
+        <div class="floating-bubble bubble2"></div>
+        <div class="floating-bubble bubble3"></div>
+        <div class="floating-bubble bubble4"></div>
+        <div class="floating-bubble bubble5"></div>
+
         <h1>🎮 Miffy Fidget</h1>
         <div class="toys-grid">
             <!-- Spinner -->
