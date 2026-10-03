@@ -18,7 +18,7 @@ body {
 }
 
 .container {
-  background: rgba(255, 255, 255, 0.9); /* Changed this line */
+  background: rgba(255, 255, 255, 0.9);
   border-radius: 20px;
   padding: 40px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
@@ -33,7 +33,6 @@ h1 {
   width: 100%;
 }
 
-/* Grid layout for toys side by side */
 .toys-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -57,21 +56,26 @@ h1 {
 
 /* Spinner */
 .spinner {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   margin: 0 auto 20px;
-  background: conic-gradient(
-    from 0deg,
-    #ff6b6b 0deg,
-    #ffd93d 90deg,
-    #6bcf7f 180deg,
-    #4d96ff 270deg,
-    #ff6b6b 360deg
-  );
+  background-image: url("miffy.jpg");
+  background-size: cover;
+  background-position: center;
   border-radius: 50%;
   cursor: pointer;
   transition: transform 0.1s;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.spinner::before {
+  content: "";
+  display: none;
 }
 
 .spinner:hover {
@@ -103,8 +107,10 @@ h1 {
 .bubble {
   width: 50px;
   height: 50px;
-  background: #ff6b6b;
-  border: 2px solid #ff5252;
+  background-image: url("miffypop.jpg");
+  background-size: cover;
+  background-position: center;
+  border: 2px solid #ddd;
   border-radius: 50%;
   cursor: pointer;
   transition: all 0.2s;
@@ -116,38 +122,104 @@ h1 {
 }
 
 .bubble.popped {
+  background-image: none;
   background: #ddd;
   transform: scale(0.95);
   box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 
-/* Bubble Wrap */
-.bubble-wrap {
-  display: grid;
-  grid-template-columns: repeat(5, 40px);
-  gap: 6px;
+/* Floating Balloon */
+.balloon-container {
+  width: 280px;
+  height: 280px;
   margin: 0 auto 20px;
-  width: fit-content;
+  background: #1a1a2e;
+  border-radius: 15px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  padding: 40px 20px;
 }
 
-.wrap-bubble {
-  width: 40px;
-  height: 40px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  border: 2px solid #555;
-  border-radius: 50%;
+.floating-balloon {
+  width: 60px;
+  height: 80px;
+  background: radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.95), currentColor);
+  border-radius: 50% 50% 50% 45%;
   cursor: pointer;
-  transition: all 0.15s;
+  transition: transform 0.2s;
+  position: relative;
+  box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.4), inset -3px -3px 8px rgba(0, 0, 0, 0.2);
+  animation: float 2s ease-in-out infinite;
+  flex-shrink: 0;
 }
 
-.wrap-bubble:hover {
+.floating-balloon::before {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 25px;
+  background: rgba(200, 200, 200, 0.6);
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.floating-balloon::after {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: currentColor;
+  bottom: -27px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  opacity: 0.7;
+}
+
+.floating-balloon:hover {
   transform: scale(1.1);
 }
 
-.wrap-bubble.burst {
-  background: #ccc;
-  transform: scale(0.8);
+.floating-balloon.popped {
+  opacity: 0;
+  transform: scale(0);
+  animation: none;
 }
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+.floating-balloon.yellow {
+  color: #ffd700;
+  animation-delay: 0s;
+}
+
+.floating-balloon.red {
+  color: #ff6b6b;
+  animation-delay: 0.2s;
+}
+
+.floating-balloon.green {
+  color: #6bcf7f;
+  animation-delay: 0.4s;
+}
+
+
+
+
+
 
 /* Clicker */
 .clicker {

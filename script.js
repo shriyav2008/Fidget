@@ -19,20 +19,32 @@ for (let i = 0; i < 16; i++) {
     popIt.appendChild(bubble);
 }
 
-// Bubble Wrap
-const bubbleWrap = document.getElementById('bubbleWrap');
-for (let i = 0; i < 25; i++) {
-    const bubble = document.createElement('div');
-    bubble.classList.add('wrap-bubble');
-    bubble.addEventListener('click', function(e) {
-        e.stopPropagation();
-        if (!bubble.classList.contains('burst')) {
-            bubble.classList.add('burst');
-            playPop();
-        }
+// Floating Balloon
+const balloonContainer = document.getElementById('balloonContainer');
+const balloonColors = ['red', 'yellow', 'green', 'blue', 'pink', 'purple', 'orange'];
+
+function createAllBalloons() {
+  balloonContainer.innerHTML = '';
+  balloonColors.forEach((color, index) => {
+    const balloon = document.createElement('div');
+    balloon.className = `floating-balloon ${color}`;
+    
+    balloon.addEventListener('click', function(e) {
+      e.stopPropagation();
+      balloon.classList.add('popped');
+      playPop();
+      setTimeout(() => {
+        createAllBalloons();
+      }, 500);
     });
-    bubbleWrap.appendChild(bubble);
+    
+    balloonContainer.appendChild(balloon);
+  });
 }
+
+// Create all balloons on load
+createAllBalloons();
+
 
 // Clicker
 let clickCount = 0;
@@ -67,6 +79,8 @@ document.addEventListener('keydown', function(e) {
     if (e.key === 'r') {
         clickCount = 0;
         clickCountDisplay.textContent = '0';
-        document.querySelectorAll('.bubble, .wrap-bubble').forEach(b => b.classList.remove('popped', 'burst'));
+        document.querySelectorAll('.bubble').forEach(b => b.classList.remove('popped'));
+        document.querySelectorAll('.floating-balloon').forEach(b => b.remove());
+        createBalloon();
     }
 });
