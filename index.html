@@ -1,467 +1,480 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fidget Toys</title>
     <style>
-        * {
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        body {
-          font-family: "Arial", sans-serif;
-          background-image: url("background.jpg");
-          background-size: cover;
-          background-position: center;
-          background-attachment: fixed;
-          min-height: 100vh;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          padding: 20px;
-        }
+      body {
+        font-family: "Arial", sans-serif;
+        background-image: url("background.jpg");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+      }
 
-        .container {
-          background: rgba(255, 255, 255, 0.9);
-          border-radius: 20px;
-          padding: 40px;
-          box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-          width: 100%;
-          max-width: 1400px;
-          position: relative;
-          overflow: hidden;
-        }
+      .container {
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        width: 100%;
+        max-width: 1400px;
+        position: relative;
+        overflow: hidden;
+      }
 
-        /* Floating bubbles background */
-        .floating-bubble {
-          position: absolute;
-          background-image: url("miffyclicker.jpg");
-          background-size: cover;
-          background-position: center;
-          border-radius: 50%;
-          opacity: 0.1;
-          pointer-events: none;
-          animation: float-bubble 6s ease-in-out infinite;
-        }
+      /* Floating bubbles background */
+      .floating-bubble {
+        position: absolute;
+        background-image: url("miffyclicker.jpg");
+        background-size: cover;
+        background-position: center;
+        border-radius: 50%;
+        opacity: 0.1;
+        pointer-events: none;
+        animation: float-bubble 6s ease-in-out infinite;
+      }
 
-        .bubble1 {
-          width: 80px;
-          height: 80px;
-          top: 10%;
-          left: 5%;
-          animation-delay: 0s;
-        }
+      .bubble1 {
+        width: 80px;
+        height: 80px;
+        top: 10%;
+        left: 5%;
+        animation-delay: 0s;
+      }
 
-        .bubble2 {
-          width: 60px;
-          height: 60px;
-          top: 20%;
-          right: 8%;
-          animation-delay: 2s;
-        }
+      .bubble2 {
+        width: 60px;
+        height: 60px;
+        top: 20%;
+        right: 8%;
+        animation-delay: 2s;
+      }
 
-        .bubble3 {
-          width: 100px;
-          height: 100px;
-          top: 50%;
-          left: 2%;
-          animation-delay: 1s;
-        }
+      .bubble3 {
+        width: 100px;
+        height: 100px;
+        top: 50%;
+        left: 2%;
+        animation-delay: 1s;
+      }
 
-        .bubble4 {
-          width: 70px;
-          height: 70px;
-          bottom: 15%;
-          right: 10%;
-          animation-delay: 3s;
-        }
+      .bubble4 {
+        width: 70px;
+        height: 70px;
+        bottom: 15%;
+        right: 10%;
+        animation-delay: 3s;
+      }
 
-        .bubble5 {
-          width: 90px;
-          height: 90px;
-          bottom: 10%;
-          left: 15%;
-          animation-delay: 1.5s;
-        }
+      .bubble5 {
+        width: 90px;
+        height: 90px;
+        bottom: 10%;
+        left: 15%;
+        animation-delay: 1.5s;
+      }
 
-        @keyframes float-bubble {
-          0%, 100% {
-            transform: translateY(0px) translateX(0px);
-          }
-          50% {
-            transform: translateY(-30px) translateX(15px);
-          }
+      @keyframes float-bubble {
+        0%,
+        100% {
+          transform: translateY(0px) translateX(0px);
         }
+        50% {
+          transform: translateY(-30px) translateX(15px);
+        }
+      }
 
-        h1 {
-          text-align: center;
-          margin-bottom: 40px;
-          color: #333;
-          width: 100%;
-          position: relative;
-          z-index: 10;
-        }
+      h1 {
+        text-align: center;
+        margin-bottom: 40px;
+        color: #333;
+        width: 100%;
+        position: relative;
+        z-index: 10;
+      }
 
-        .toys-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-          gap: 30px;
-          width: 100%;
-          position: relative;
-          z-index: 20;
-        }
+      .toys-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        width: 100%;
+        position: relative;
+        z-index: 20;
+      }
 
-        .fidget-item {
-          text-align: center;
-          padding: 20px;
-          background: #f9f9f9;
-          border-radius: 15px;
-          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
+      .fidget-item {
+        text-align: center;
+        padding: 20px;
+        background: #f9f9f9;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
 
-        .fidget-item h2 {
-          font-size: 18px;
-          margin-bottom: 15px;
-          color: #555;
-        }
+      .fidget-item h2 {
+        font-size: 18px;
+        margin-bottom: 15px;
+        color: #555;
+      }
 
-        /* Spinner */
-        .spinner {
-          width: 150px;
-          height: 150px;
-          margin: 0 auto 20px;
-          background-image: url("miffy.jpg");
-          background-size: cover;
-          background-position: center;
-          border-radius: 50%;
-          cursor: pointer;
-          transition: transform 0.1s;
-          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          position: relative;
-          overflow: hidden;
-        }
+      /* Spinner */
+      .spinner {
+        width: 150px;
+        height: 150px;
+        margin: 0 auto 20px;
+        background-image: url("miffy.jpg");
+        background-size: cover;
+        background-position: center;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: transform 0.1s;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+      }
 
-        .spinner:hover {
-          transform: scale(1.05);
-        }
+      .spinner:hover {
+        transform: scale(1.05);
+      }
 
-        .spinner.spinning {
-          animation: spin 2s linear infinite;
-        }
+      .spinner.spinning {
+        animation: spin 2s linear infinite;
+      }
 
-        @keyframes spin {
-          from {
-            transform: rotate(0deg);
-          }
-          to {
-            transform: rotate(360deg);
-          }
+      @keyframes spin {
+        from {
+          transform: rotate(0deg);
         }
+        to {
+          transform: rotate(360deg);
+        }
+      }
 
-        /* Pop It */
-        .pop-it {
-          display: grid;
-          grid-template-columns: repeat(4, 50px);
-          gap: 8px;
-          margin: 0 auto 20px;
-          width: fit-content;
-        }
+      /* Pop It */
+      .pop-it {
+        display: grid;
+        grid-template-columns: repeat(4, 50px);
+        gap: 8px;
+        margin: 0 auto 20px;
+        width: fit-content;
+      }
 
-        .bubble {
-          width: 50px;
-          height: 50px;
-          background-image: url("miffypop.jpg");
-          background-size: cover;
-          background-position: center;
-          border: 2px solid #ddd;
-          border-radius: 50%;
-          cursor: pointer;
-          transition: all 0.2s;
-          box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
-        }
+      .bubble {
+        width: 50px;
+        height: 50px;
+        background-image: url("miffypop.jpg");
+        background-size: cover;
+        background-position: center;
+        border: 2px solid #ddd;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: all 0.2s;
+        box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+      }
 
-        .bubble:hover {
-          transform: scale(1.05);
-        }
+      .bubble:hover {
+        transform: scale(1.05);
+      }
 
-        .bubble.popped {
-          background-image: none;
-          background: #ddd;
-          transform: scale(0.95);
-          box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5);
-        }
+      .bubble.popped {
+        background-image: none;
+        background: #ddd;
+        transform: scale(0.95);
+        box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5);
+      }
 
-        /* Floating Balloon */
-        .balloon-container {
-          width: 280px;
-          height: 280px;
-          margin: 0 auto 20px;
-          background: #1a1a2e;
-          border-radius: 15px;
-          position: relative;
-          overflow: hidden;
-          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          gap: 30px;
-          padding: 40px 20px;
-        }
+      /* Floating Balloon */
+      .balloon-container {
+        width: 280px;
+        height: 280px;
+        margin: 0 auto 20px;
+        background: #1a1a2e;
+        border-radius: 15px;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        padding: 40px 20px;
+      }
 
-        .floating-balloon {
-          width: 60px;
-          height: 80px;
-          background-image: url("miffyballoon.jpg");
-          background-size: cover;
-          background-position: center;
-          border-radius: 50% 50% 50% 45%;
-          cursor: pointer;
-          transition: transform 0.2s;
-          position: relative;
-          box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.4), inset -3px -3px 8px rgba(0, 0, 0, 0.2);
-          animation: float 2s ease-in-out infinite;
-          flex-shrink: 0;
-        }
+      .floating-balloon {
+        width: 60px;
+        height: 80px;
+        background-image: url("miffyballoon.jpg");
+        background-size: cover;
+        background-position: center;
+        border-radius: 50% 50% 50% 45%;
+        cursor: pointer;
+        transition: transform 0.2s;
+        position: relative;
+        box-shadow:
+          -5px 5px 15px rgba(0, 0, 0, 0.4),
+          inset -3px -3px 8px rgba(0, 0, 0, 0.2);
+        animation: float 2s ease-in-out infinite;
+        flex-shrink: 0;
+      }
 
-        .floating-balloon::before {
-          content: "";
-          position: absolute;
-          width: 2px;
-          height: 25px;
-          background: rgba(200, 200, 200, 0.6);
-          bottom: -25px;
-          left: 50%;
-          transform: translateX(-50%);
-        }
+      .floating-balloon::before {
+        content: "";
+        position: absolute;
+        width: 2px;
+        height: 25px;
+        background: rgba(200, 200, 200, 0.6);
+        bottom: -25px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
 
-        .floating-balloon::after {
-          content: "";
-          position: absolute;
-          width: 6px;
-          height: 6px;
-          background: rgba(100, 100, 100, 0.7);
-          bottom: -27px;
-          left: 50%;
-          transform: translateX(-50%);
-          border-radius: 50%;
-          opacity: 0.7;
-        }
+      .floating-balloon::after {
+        content: "";
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        background: rgba(100, 100, 100, 0.7);
+        bottom: -27px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 50%;
+        opacity: 0.7;
+      }
 
-        .floating-balloon:hover {
-          transform: scale(1.1);
-        }
+      .floating-balloon:hover {
+        transform: scale(1.1);
+      }
 
-        .floating-balloon.popped {
-          opacity: 0;
-          transform: scale(0);
-          animation: none;
-        }
+      .floating-balloon.popped {
+        opacity: 0;
+        transform: scale(0);
+        animation: none;
+      }
 
-        @keyframes float {
-          0%, 100% {
-            transform: translateY(0px);
-          }
-          50% {
-            transform: translateY(-15px);
-          }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
         }
+        50% {
+          transform: translateY(-15px);
+        }
+      }
 
-        .floating-balloon.yellow {
-          animation-delay: 0s;
-        }
+      .floating-balloon.yellow {
+        animation-delay: 0s;
+      }
 
-        .floating-balloon.red {
-          animation-delay: 0.2s;
-        }
+      .floating-balloon.red {
+        animation-delay: 0.2s;
+      }
 
-        .floating-balloon.green {
-          animation-delay: 0.4s;
-        }
+      .floating-balloon.green {
+        animation-delay: 0.4s;
+      }
 
-        /* Clicker */
-        .clicker {
-          width: 120px;
-          height: 120px;
-          margin: 0 auto 20px;
-          background-image: url("miffyclicker.jpg");
-          background-size: cover;
-          background-position: center;
-          border-radius: 50%;
-          cursor: pointer;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          transition: all 0.1s;
-          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
+      /* Clicker */
+      .clicker {
+        width: 120px;
+        height: 120px;
+        margin: 0 auto 20px;
+        background-image: url("miffyclicker.jpg");
+        background-size: cover;
+        background-position: center;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.1s;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
 
-        .clicker:hover {
-          transform: scale(1.05);
-        }
+      .clicker:hover {
+        transform: scale(1.05);
+      }
 
-        .clicker:active {
-          transform: scale(0.95);
-        }
+      .clicker:active {
+        transform: scale(0.95);
+      }
 
-        p {
-          font-size: 18px;
-          color: #555;
-        }
+      p {
+        font-size: 18px;
+        color: #555;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <!-- Floating bubbles background -->
-        <div class="floating-bubble bubble1"></div>
-        <div class="floating-bubble bubble2"></div>
-        <div class="floating-bubble bubble3"></div>
-        <div class="floating-bubble bubble4"></div>
-        <div class="floating-bubble bubble5"></div>
+      <!-- Floating bubbles background -->
+      <div class="floating-bubble bubble1"></div>
+      <div class="floating-bubble bubble2"></div>
+      <div class="floating-bubble bubble3"></div>
+      <div class="floating-bubble bubble4"></div>
+      <div class="floating-bubble bubble5"></div>
 
-        <h1>🎮 Miffy Fidget</h1>
-        <div class="toys-grid">
-            <!-- Spinner -->
-            <div class="fidget-item">
-                <h2>Spinner</h2>
-                <div class="spinner" id="spinner"></div>
-                <p>Click to spin!</p>
-            </div>
-
-            <!-- Pop It -->
-            <div class="fidget-item">
-                <h2>Pop It</h2>
-                <div class="pop-it" id="popIt"></div>
-                <p>Pop the bubbles!</p>
-            </div>
-
-            <!-- Floating Balloon -->
-            <div class="fidget-item">
-                <h2>Floating Balloon</h2>
-                <div class="balloon-container" id="balloonContainer"></div>
-                <p>Pop the balloons!</p>
-            </div>
-
-            <!-- Clicker -->
-            <div class="fidget-item">
-                <h2>Clicker</h2>
-                <div class="clicker" id="clicker"></div>
-                <p>Clicks: <span id="clickCount">0</span></p>
-            </div>
+      <h1>🎮 Miffy Fidget</h1>
+      <div class="toys-grid">
+        <!-- Spinner -->
+        <div class="fidget-item">
+          <h2>Spinner</h2>
+          <div class="spinner" id="spinner"></div>
+          <p>Click to spin!</p>
         </div>
+
+        <!-- Pop It -->
+        <div class="fidget-item">
+          <h2>Pop It</h2>
+          <div class="pop-it" id="popIt"></div>
+          <p>Pop the bubbles!</p>
+        </div>
+
+        <!-- Floating Balloon -->
+        <div class="fidget-item">
+          <h2>Floating Balloon</h2>
+          <div class="balloon-container" id="balloonContainer"></div>
+          <p>Pop the balloons!</p>
+        </div>
+
+        <!-- Clicker -->
+        <div class="fidget-item">
+          <h2>Clicker</h2>
+          <div class="clicker" id="clicker"></div>
+          <p>Clicks: <span id="clickCount">0</span></p>
+        </div>
+      </div>
     </div>
 
     <script>
-        // Spinner
-        const spinner = document.getElementById('spinner');
-        spinner.addEventListener('click', function() {
-            spinner.classList.add('spinning');
+      // Spinner
+      const spinner = document.getElementById("spinner");
+      spinner.addEventListener("click", function () {
+        spinner.classList.add("spinning");
+        setTimeout(() => {
+          spinner.classList.remove("spinning");
+        }, 2000);
+      });
+
+      // Pop It
+      const popIt = document.getElementById("popIt");
+      for (let i = 0; i < 16; i++) {
+        const bubble = document.createElement("div");
+        bubble.classList.add("bubble");
+        bubble.addEventListener("click", function (e) {
+          e.stopPropagation();
+          bubble.classList.toggle("popped");
+        });
+        popIt.appendChild(bubble);
+      }
+
+      // Floating Balloon
+      const balloonContainer = document.getElementById("balloonContainer");
+      const balloonColors = ["yellow", "red", "green"];
+
+      function createAllBalloons() {
+        balloonContainer.innerHTML = "";
+        balloonColors.forEach((color) => {
+          const balloon = document.createElement("div");
+          balloon.className = `floating-balloon ${color}`;
+
+          balloon.addEventListener("click", function (e) {
+            e.stopPropagation();
+            balloon.classList.add("popped");
+            playPop();
             setTimeout(() => {
-                spinner.classList.remove('spinning');
-            }, 2000);
-        });
-
-        // Pop It
-        const popIt = document.getElementById('popIt');
-        for (let i = 0; i < 16; i++) {
-            const bubble = document.createElement('div');
-            bubble.classList.add('bubble');
-            bubble.addEventListener('click', function(e) {
-                e.stopPropagation();
-                bubble.classList.toggle('popped');
-            });
-            popIt.appendChild(bubble);
-        }
-
-        // Floating Balloon
-        const balloonContainer = document.getElementById('balloonContainer');
-        const balloonColors = ['yellow', 'red', 'green'];
-
-        function createAllBalloons() {
-          balloonContainer.innerHTML = '';
-          balloonColors.forEach((color) => {
-            const balloon = document.createElement('div');
-            balloon.className = `floating-balloon ${color}`;
-            
-            balloon.addEventListener('click', function(e) {
-              e.stopPropagation();
-              balloon.classList.add('popped');
-              playPop();
-              setTimeout(() => {
-                createAllBalloons();
-              }, 400);
-            });
-            
-            balloonContainer.appendChild(balloon);
+              createAllBalloons();
+            }, 400);
           });
+
+          balloonContainer.appendChild(balloon);
+        });
+      }
+
+      createAllBalloons();
+
+      // Clicker
+      let clickCount = 0;
+      const clicker = document.getElementById("clicker");
+      const clickCountDisplay = document.getElementById("clickCount");
+      clicker.addEventListener("click", function () {
+        clickCount++;
+        clickCountDisplay.textContent = clickCount;
+      });
+
+      // Proper balloon pop sound effect
+      function playPop() {
+        const audioContext = new (
+          window.AudioContext || window.webkitAudioContext
+        )();
+        const now = audioContext.currentTime;
+
+        // Create a noise buffer
+        const bufferSize = audioContext.sampleRate * 0.5;
+        const noiseBuffer = audioContext.createBuffer(
+          1,
+          bufferSize,
+          audioContext.sampleRate,
+        );
+        const output = noiseBuffer.getChannelData(0);
+
+        for (let i = 0; i < bufferSize; i++) {
+          output[i] = Math.random() * 2 - 1;
         }
 
-        createAllBalloons();
+        // Create noise source
+        const noiseSource = audioContext.createBufferSource();
+        noiseSource.buffer = noiseBuffer;
 
-        // Clicker
-        let clickCount = 0;
-        const clicker = document.getElementById('clicker');
-        const clickCountDisplay = document.getElementById('clickCount');
-        clicker.addEventListener('click', function() {
-            clickCount++;
-            clickCountDisplay.textContent = clickCount;
-        });
+        // Create filter for pop effect
+        const filter = audioContext.createBiquadFilter();
+        filter.type = "highpass";
+        filter.frequency.setValueAtTime(2000, now);
+        filter.frequency.exponentialRampToValueAtTime(200, now + 0.2);
 
-        // Proper balloon pop sound effect
-        function playPop() {
-            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-            const now = audioContext.currentTime;
-            
-            // Create a noise buffer
-            const bufferSize = audioContext.sampleRate * 0.5;
-            const noiseBuffer = audioContext.createBuffer(1, bufferSize, audioContext.sampleRate);
-            const output = noiseBuffer.getChannelData(0);
-            
-            for (let i = 0; i < bufferSize; i++) {
-                output[i] = Math.random() * 2 - 1;
-            }
-            
-            // Create noise source
-            const noiseSource = audioContext.createBufferSource();
-            noiseSource.buffer = noiseBuffer;
-            
-            // Create filter for pop effect
-            const filter = audioContext.createBiquadFilter();
-            filter.type = 'highpass';
-            filter.frequency.setValueAtTime(2000, now);
-            filter.frequency.exponentialRampToValueAtTime(200, now + 0.2);
-            
-            // Create gain for volume
-            const gain = audioContext.createGain();
-            gain.gain.setValueAtTime(0.5, now);
-            gain.gain.exponentialRampToValueAtTime(0.01, now + 0.2);
-            
-            // Connect nodes
-            noiseSource.connect(filter);
-            filter.connect(gain);
-            gain.connect(audioContext.destination);
-            
-            // Play
-            noiseSource.start(now);
-            noiseSource.stop(now + 0.2);
+        // Create gain for volume
+        const gain = audioContext.createGain();
+        gain.gain.setValueAtTime(0.5, now);
+        gain.gain.exponentialRampToValueAtTime(0.01, now + 0.2);
+
+        // Connect nodes
+        noiseSource.connect(filter);
+        filter.connect(gain);
+        gain.connect(audioContext.destination);
+
+        // Play
+        noiseSource.start(now);
+        noiseSource.stop(now + 0.2);
+      }
+
+      // Reset button (press 'r' key)
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "r" || e.key === "R") {
+          clickCount = 0;
+          clickCountDisplay.textContent = "0";
+          document
+            .querySelectorAll(".bubble")
+            .forEach((b) => b.classList.remove("popped"));
+          document
+            .querySelectorAll(".floating-balloon")
+            .forEach((b) => b.remove());
+          createAllBalloons();
         }
-
-        // Reset button (press 'r' key)
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'r' || e.key === 'R') {
-                clickCount = 0;
-                clickCountDisplay.textContent = '0';
-                document.querySelectorAll('.bubble').forEach(b => b.classList.remove('popped'));
-                document.querySelectorAll('.floating-balloon').forEach(b => b.remove());
-                createAllBalloons();
-            }
-        });
+      });
     </script>
-</body>
+  </body>
 </html>
-  
