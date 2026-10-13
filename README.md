@@ -36,7 +36,7 @@ Edit the image URLs in the CSS and JavaScript:
 - **Clicker**: `url("miffyclicker.jpg")`
 - **Background**: `url("background.jpg")`
 
-Replace these with your own image file paths!
+Replace these with your own image file paths to add a personal taste to it!
 
 ### Sound Effects
 The balloon pop uses a generated audio context. To customize:
